@@ -1,0 +1,25 @@
+{
+  "name": "idea-spoon",
+  "version": "1.0.0",
+  "description": "Stir up half baked ideas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wheresrhys/idea-spoon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wheresrhys/idea-spoon/issues"
+  },
+  "homepage": "https://github.com/wheresrhys/idea-spoon",
+  "dependencies": {
+    "es6-promise": "^2.0.1",
+    "express": "^4.12.3",
+    "mongoose": "^4.0.0",
+    "mongoose-random": "^0.1.1"
+  }
+}
