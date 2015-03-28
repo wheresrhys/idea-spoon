@@ -18,7 +18,7 @@ db.once('open', function callback () {
 
 var ideaSchema = mongoose.Schema({
 	note: String,
-	downVotes: {type: Number, 'default': 0},
+	votes: {type: Number, 'default': 0},
 	isFull: Boolean
 });
 

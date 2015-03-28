@@ -9,7 +9,9 @@
 		{{#each ideas}}
 			<div data-id="{{_id}}"><p>{{{note}}}
 				<span class="actions">
-					<button class="down-vote" data-value="{{downVotes}}">down vote</button>
+					<input class="votes-{{_id}}" type="number" value="{{votes}}" />
+					<button class="down-vote">down vote</button>
+					<button class="up-vote">up vote</button>
 
 					{{#unless isFull}}<button class="is-full">full idea</button>{{/unless}}
 				</span>
