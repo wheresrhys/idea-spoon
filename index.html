@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Idea spoon</title>
+		<link rel="stylesheet" href="/styles.css" />
+	</head>
+	<body>
+		<a class="refresh" href="/">Refresh</a>
+		{{#each ideas}}
+			<div data-id="{{_id}}"><p>{{{note}}}
+				<span class="actions">
+					<button class="down-vote" data-value="{{downVotes}}">down vote</button>
+
+					{{#unless isFull}}<button class="is-full">full idea</button>{{/unless}}
+				</span>
+			</p></div>
+		{{/each}}
+		<script src="/fetch.js"></script>
+		<script src="/bundle.js"></script>
+	</body>
+</html>

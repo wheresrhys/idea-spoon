@@ -1,0 +1,70 @@
+p,
+body,
+html {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-family: helvetica, arial, sans-serif;
+	box-sizing: border-box;
+}
+
+.refresh,
+p,
+button {
+	margin: 5px;
+	border: 1px solid #ddd;
+	background: #eee;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+p:after {
+	content: '';
+	clear: both;
+	display: table;
+}
+
+@media (min-width: 600px) {
+	div[data-id] {
+		width: 50%;
+		float: left;
+	}
+
+	div[data-id]:nth-child(2n) {
+		clear: left;
+	}
+}
+
+.refresh,
+button {
+	display: block;
+	background: #27e;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.refresh:hover,
+button:hover {
+	background: #24c;
+}
+
+.actions {
+	display: block;
+}
+button {
+	width: 100px;
+	float: right;
+	padding: 5px;
+}
+
+.down-vote {
+	background: #e42;
+}
+
+.down-vote:hover {
+	background: #c30;
+}
+
