@@ -20,7 +20,8 @@ var ideaSchema = mongoose.Schema({
 	note: String,
 	votes: {type: Number, 'default': 0},
 	isFull: Boolean,
-	lookUp: Boolean
+	lookUp: Boolean,
+	isDone: Boolean
 });
 
 ideaSchema.plugin(random); // by default `path` is `random`. It's used internally to store a random value on each doc.
