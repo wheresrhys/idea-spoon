@@ -19,7 +19,8 @@ db.once('open', function callback () {
 var ideaSchema = mongoose.Schema({
 	note: String,
 	votes: {type: Number, 'default': 0},
-	isFull: Boolean
+	isFull: Boolean,
+	lookUp: Boolean
 });
 
 ideaSchema.plugin(random); // by default `path` is `random`. It's used internally to store a random value on each doc.
@@ -34,13 +35,18 @@ var Idea = mongoose.model('notebook', ideaSchema);
 function getFive () {
 	return Idea.findRandom().limit(10).exec()
 		.then(function (ideas) {
-		  return ideas.sort(function (i1, i2) {
-		  	return i1.downVotes == i2.downVotes ? 0 : i1.downVotes > i2.downVotes ? -1 : 1;
-		  }).slice(0, 5).map(function (idea) {
-		  	idea = idea.toObject();
-		  	idea.note = idea.note.replace(/\n/g, '<br>');
-		  	return idea;
-		  });
+		  return ideas
+		 		.filter(function (i) {
+					return !i.isDone && !i.lookUp && !i.isFull;
+				})
+			  .sort(function (i1, i2) {
+			  	return i1.downVotes == i2.downVotes ? 0 : i1.downVotes > i2.downVotes ? -1 : 1;
+			  })
+			  .slice(0, 5).map(function (idea) {
+			  	idea = idea.toObject();
+			  	idea.note = idea.note.replace(/\n/g, '<br>');
+			  	return idea;
+			  });
 		});
 }
 

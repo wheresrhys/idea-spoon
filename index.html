@@ -8,13 +8,15 @@
 	<body>
 		<a class="refresh" href="/">Refresh</a>
 		{{#each ideas}}
-			<div data-id="{{_id}}"><p>{{{note}}}
+			<div class="idea" data-id="{{_id}}"><p>{{{note}}}
 				<span class="actions">
-					<span class="votes-{{_id}}">{{votes}}</span>
+					<span class="votes votes-{{_id}}">{{votes}}</span>
 					<button class="down-vote">down vote</button>
 					<button class="up-vote">up vote</button>
 
-					{{#unless isFull}}<button class="is-full">full idea</button>{{/unless}}
+					{{#unless isFull}}<button class="is-full">full</button>{{/unless}}
+					{{#unless lookUp}}<button class="lookup">lookup</button>{{/unless}}
+					{{#unless isDone}}<button class="is-done">done</button>{{/unless}}
 				</span>
 			</p></div>
 		{{/each}}
