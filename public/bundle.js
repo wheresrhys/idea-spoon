@@ -12,7 +12,7 @@ document.body.addEventListener('click', function (ev) {
 	var id = getClosest(ev.target, '[data-id]').dataset.id;
 	var votesEl = document.querySelector('.votes-' + id);
 	if (ev.target.matches('button.down-vote')) {
-		votesEl.value = votesEl.value - 1;
+		votesEl.textContent = votesEl.textContent - 1;
 		fetch('/' + id, {
 			method: 'put',
 			headers: {
@@ -20,11 +20,11 @@ document.body.addEventListener('click', function (ev) {
 		    'Content-Type': 'application/json'
 		  },
 			body: JSON.stringify({
-				votes: votesEl.value
+				votes: votesEl.textContent
 			})
 		});
 	} else if (ev.target.matches('button.up-vote')) {
-		votesEl.value = +votesEl.value + 1;
+		votesEl.textContent = +votesEl.textContent + 1;
 		fetch('/' + id, {
 			method: 'put',
 			headers: {
@@ -32,7 +32,7 @@ document.body.addEventListener('click', function (ev) {
 		    'Content-Type': 'application/json'
 		  },
 			body: JSON.stringify({
-				votes: votesEl.value
+				votes: votesEl.textContent
 			})
 		});
 	} else if (ev.target.matches('button.is-full')) {

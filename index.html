@@ -10,7 +10,7 @@
 		{{#each ideas}}
 			<div data-id="{{_id}}"><p>{{{note}}}
 				<span class="actions">
-					<input class="votes-{{_id}}" type="number" value="{{votes}}" />
+					<span class="votes-{{_id}}">{{votes}}</span>
 					<button class="down-vote">down vote</button>
 					<button class="up-vote">up vote</button>
 
