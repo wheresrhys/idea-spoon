@@ -32,6 +32,9 @@ var Idea = mongoose.model('notebook', ideaSchema);
 
 // if you have an existing collection, it must first by synced.
 // this will add random data for the `path` key for each doc.
+Idea.syncRandom(function (err, result) {
+  console.log(result.updated);
+});
 
 function getFive () {
 	return Idea.findRandom().limit(10).exec()
