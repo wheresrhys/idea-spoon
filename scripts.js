@@ -34,11 +34,11 @@ program
 				denodeify(fs.readFile)(file, 'utf8').then(function (notes) {
 					var exists = {};
 					notes = notes
-						.replace(/Subject\:.*\n/g, '')
-						.replace(/From\: Rhys Evans.*\n/g, '')
-						.replace(/Date\: \d\d\/\d\d\/\d\d\d\d.*\n/g, '')
-						.replace(/\n+-+\n+/g, '^^^^')
-						.replace(/\n/g, '\\n')
+						.replace(/Subject\:.*(\r?\n)/g, '')
+						.replace(/From\: Rhys Evans.*(\r?\n)/g, '')
+						.replace(/Date\: \d\d\/\d\d\/\d\d\d\d.*(\r?\n)/g, '')
+						.replace(/(\r?\n)+-+(\r?\n)+/gm, '^^^^')
+						.replace(/(\r?\n)/g, '\\n')
 						.replace(/"/g, '\\"')
 						.split('^^^^')
 						.filter(function (note) {
@@ -49,7 +49,7 @@ program
 							return true;
 						})
 						.map(function (note) {
-							return '{"note":"' + note + '"}';
+							return '{"note":"' + note.replace(/(^(\\n)+|(\\n)+$)/, '') + '"}';
 						});
 
 					var noteBunches = [];
