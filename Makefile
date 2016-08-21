@@ -1,3 +1,10 @@
+#guide
+## open thunderbird
+# export tools - export all messages in folder - as text file
+# paste path to update into the update commadn below
+# backup
+# update
+# move notes to archive
 
 run-local:
 	export DB=ideas NODE_ENV=development PORT=5000 DB_HOST=localhost; nodemon --watch app.js app.js
